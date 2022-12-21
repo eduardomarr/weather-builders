@@ -29,36 +29,18 @@ import {
   CardGrid,
 } from './styles';
 
-import Geolocation from '@react-native-community/geolocation';
-import axios from 'axios';
 import { Card } from '../../components/Card';
-
-const API_KEY = 'f2da76684dcb8cc103a744f83d5683ae';
-
-interface WeatherTypes {
-  description: string;
-  temp: number;
-  feelsLike: number;
-  tempMin: number;
-  tempMax: number;
-  pressure: number;
-  humidity: number;
-  windSpeed: number;
-  district: string;
-  visibility: string;
-  sunset: string;
-  sunrise: string;
-  icon: string;
-}
+import { useWeather } from '../../hooks/useWeather';
 
 const wait = (timeout: number) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 };
 
 export function Home() {
-  const [weather, setWeather] = useState<WeatherTypes>({} as WeatherTypes);
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const { getCurrentWeather, weather } = useWeather();
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -66,7 +48,7 @@ export function Home() {
       getCurrentWeather();
       setRefreshing(false);
     });
-  }, []);
+  }, [getCurrentWeather]);
 
   const navigation = useNavigation();
 
@@ -74,66 +56,11 @@ export function Home() {
     locale: ptBR,
   });
 
-  const options = {
-    enableHighAccuracy: false,
-    timeout: 2000,
-    maximumAge: 3600000,
-  };
-
-  function getCurrentWeather() {
-    Geolocation.getCurrentPosition(
-      location => {
-        axios
-          .get(`https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}`, {
-            params: {
-              appid: API_KEY,
-              units: 'metric',
-              lang: 'pt_br',
-            },
-          })
-          .then(res => {
-            //APAGAR
-
-            const array = {
-              ...res.data,
-              sunrise: new Date(res.data.sys.sunrise),
-              sunset: new Date(res.data.sys.sunset),
-            };
-
-            console.log(JSON.stringify(array, null, 2));
-
-            //APAGAR
-
-            setWeather({
-              description: res.data.weather[0].description,
-              temp: res.data.main.temp,
-              feelsLike: res.data.main.feels_like,
-              tempMin: res.data.main.temp_min.toFixed(),
-              tempMax: res.data.main.temp_max.toFixed(),
-              pressure: res.data.main.pressure,
-              humidity: res.data.main.humidity,
-              windSpeed: res.data.wind.speed,
-              district: res.data.name,
-              visibility: `${res.data.visibility / 1000} km`,
-              sunrise: format(new Date(res.data.sys.sunrise), 'p'),
-              sunset: format(new Date(res.data.sys.sunset), 'p'),
-              icon: `https://openweathermap.org/img/wn/${res.data.weather[0].icon}@4x.png`,
-            });
-
-            setLoading(false);
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      },
-      () => console.log(`${Platform.OS} - geo_error`),
-      options,
-    );
-  }
-
   useEffect(() => {
+    setLoading(true);
     getCurrentWeather();
-  }, []);
+    setLoading(false);
+  }, [getCurrentWeather]);
 
   const cardData = [
     {

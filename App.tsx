@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from './src/styles/theme';
 import SplashScreen from 'react-native-splash-screen';
 import { StatusBar } from 'react-native';
+import { WeatherProvider } from './src/context/weather';
 
 const App = () => {
   useEffect(() => {
@@ -19,7 +20,9 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle="light-content" />
-      <Routes />
+      <WeatherProvider>
+        <Routes />
+      </WeatherProvider>
     </ThemeProvider>
   );
 };
