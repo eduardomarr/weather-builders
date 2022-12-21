@@ -1,15 +1,7 @@
 import React from 'react';
 
-import { TouchableOpacityProps } from 'react-native';
-
 import { Container, Title } from './styles';
-
-interface ButtonProps extends TouchableOpacityProps {
-  title: string;
-  onPress?: () => void;
-  isDisabledStyle?: boolean;
-  type?: 'primary' | 'secondary';
-}
+import { ButtonProps } from './types';
 
 export function Button({ title, onPress, isDisabledStyle, type = 'primary', ...rest }: ButtonProps) {
   return (

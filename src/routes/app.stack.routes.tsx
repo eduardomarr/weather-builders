@@ -6,12 +6,7 @@ import { Home } from '../screens/Home';
 import { Settings } from '../screens/Settings';
 import { About } from '../screens/About';
 import { useTheme } from 'styled-components';
-
-export type RootStackParamList = {
-  Settings: undefined;
-  About: undefined;
-  Home: undefined;
-};
+import { RootStackParamList } from './types';
 
 const { Navigator, Screen } = createNativeStackNavigator<RootStackParamList>();
 

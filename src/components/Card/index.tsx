@@ -1,14 +1,9 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import { useTheme } from 'styled-components';
 
 import { Container, CardTitle, CardContent, CardIcon, CardValue } from './styles';
-
-interface CardProps {
-  title: string;
-  icon: string;
-  value: string;
-}
+import { CardProps } from './types';
 
 export function Card({ title, icon, value }: CardProps) {
   const theme = useTheme();

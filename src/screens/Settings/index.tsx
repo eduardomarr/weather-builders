@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import { useTheme } from 'styled-components';
-import { RootStackParamList } from '../../routes/app.stack.routes';
+import { RootStackParamList } from '../../routes/types';
 
 import { Container, Content, ItemList, ItemTitle, ItemButton, ItemIcon } from './styles';
 

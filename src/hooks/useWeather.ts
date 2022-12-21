@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import { WeatherContext, WeatherContextType } from '../context/weather';
+import { WeatherContext } from '../context/weather';
+import { WeatherContextType } from '../context/weather/types';
 
 export const useWeather = (): WeatherContextType => {
   const context = useContext(WeatherContext);

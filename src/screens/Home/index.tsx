@@ -31,7 +31,7 @@ import {
 import { Card } from '../../components/Card';
 import { useWeather } from '../../hooks/useWeather';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../routes/app.stack.routes';
+import { RootStackParamList } from '../../routes/types';
 
 export function Home() {
   const [refreshing, setRefreshing] = useState(false);

@@ -1,22 +1,12 @@
 import Geolocation from '@react-native-community/geolocation';
 import { format } from 'date-fns';
-import React, { createContext, ReactNode, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import { Platform } from 'react-native';
 import { api } from '../../services/api';
-import { WeatherTypes } from './types';
+import { Children, WeatherContextType, WeatherTypes } from './types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { API_KEY } = process.env;
-
-type Children = {
-  children: ReactNode;
-};
-export interface WeatherContextType {
-  getCurrentWeather: () => Promise<void>;
-  weather: WeatherTypes;
-  loading: boolean;
-  setLoading: (loading: boolean) => void;
-}
 
 const weatherStorageKey = '@weatherBuilders:currentWeather';
 

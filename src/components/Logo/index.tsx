@@ -3,10 +3,7 @@ import React from 'react';
 import { Container, LogoImage, Title } from './styles';
 
 import LogoIcon from '../../assets/logo.png';
-
-interface LogoProps {
-  testID?: string;
-}
+import { LogoProps } from './types';
 
 export function Logo({ testID }: LogoProps) {
   return (

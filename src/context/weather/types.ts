@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface WeatherTypes {
   description: string;
   temp: number;
@@ -12,4 +14,14 @@ export interface WeatherTypes {
   sunset: string;
   sunrise: string;
   icon: string;
+}
+
+export type Children = {
+  children: ReactNode;
+};
+export interface WeatherContextType {
+  getCurrentWeather: () => Promise<void>;
+  weather: WeatherTypes;
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
 }
