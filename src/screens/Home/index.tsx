@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Platform, RefreshControl } from 'react-native';
-import { useTheme } from 'styled-components';
+import { RefreshControl } from 'react-native';
 
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
@@ -31,36 +30,31 @@ import {
 
 import { Card } from '../../components/Card';
 import { useWeather } from '../../hooks/useWeather';
-
-const wait = (timeout: number) => {
-  return new Promise(resolve => setTimeout(resolve, timeout));
-};
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../routes/app.stack.routes';
 
 export function Home() {
   const [refreshing, setRefreshing] = useState(false);
-  const [loading, setLoading] = useState(true);
 
-  const { getCurrentWeather, weather } = useWeather();
+  const { getCurrentWeather, weather, loading, setLoading } = useWeather();
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-    wait(2000).then(() => {
-      getCurrentWeather();
-      setRefreshing(false);
-    });
-  }, [getCurrentWeather]);
+    setLoading(true);
+    getCurrentWeather();
+    setRefreshing(false);
+    setLoading(false);
+  }, [getCurrentWeather, setLoading]);
 
-  const navigation = useNavigation();
+  const { navigate } = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const today = format(new Date(), 'PPPP', {
     locale: ptBR,
   });
 
   useEffect(() => {
-    setLoading(true);
     getCurrentWeather();
-    setLoading(false);
-  }, [getCurrentWeather]);
+  }, []);
 
   const cardData = [
     {
@@ -115,11 +109,7 @@ export function Home() {
         }>
         <Content>
           <Header>
-            <Title>
-              Bom dia, {'\n'}
-              <Bold>Usuário</Bold>
-            </Title>
-            <HeaderButton onPress={() => navigation.navigate('Settings')}>
+            <HeaderButton onPress={() => navigate('Settings')}>
               <HeaderIcon name="settings-4-fill" color={'#fff'} />
             </HeaderButton>
           </Header>

@@ -2,8 +2,6 @@ import styled from 'styled-components/native';
 import Icon from 'react-native-remix-icon';
 import { RFValue } from 'react-native-responsive-fontsize';
 
-import theme from '../../styles/theme';
-
 import LinearGradient from 'react-native-linear-gradient';
 
 export const Gradient = styled(LinearGradient)`
@@ -16,9 +14,7 @@ export const Gradient = styled(LinearGradient)`
 
 export const Container = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
-})`
-  /* background: ${({ theme }) => theme.colors.background_700}; */
-`;
+})``;
 
 export const Content = styled.View`
   padding: 56px 24px;
@@ -28,27 +24,16 @@ export const Content = styled.View`
 export const Header = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-bottom: 24px;
 `;
 
 export const HeaderButton = styled.TouchableOpacity``;
 
-export const Title = styled.Text`
-  color: ${({ theme }) => theme.colors.white};
-  font-size: ${RFValue(22)}px;
-  font-family: ${({ theme }) => theme.fonts.primary_300};
-`;
-
 export const Loading = styled.ActivityIndicator``;
 
 export const LoadingContainer = styled.View`
   margin: 50% 0;
-`;
-
-export const Bold = styled.Text`
-  color: ${({ theme }) => theme.colors.white};
-  font-family: ${({ theme }) => theme.fonts.primary_700};
 `;
 
 export const HeaderIcon = styled(Icon).attrs({

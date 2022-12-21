@@ -4,23 +4,27 @@ import React, { createContext, ReactNode, useState } from 'react';
 import { Platform } from 'react-native';
 import { api } from '../../services/api';
 import { WeatherTypes } from './types';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const { API_KEY } = process.env;
 
 type Children = {
   children: ReactNode;
 };
-
 export interface WeatherContextType {
   getCurrentWeather: () => Promise<void>;
   weather: WeatherTypes;
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
 }
 
-const API_KEY = 'f2da76684dcb8cc103a744f83d5683ae'; //colocar no .env
+const weatherStorageKey = '@weatherBuilders:currentWeather';
 
 export const WeatherContext = createContext<WeatherContextType>({} as WeatherContextType);
 
 export function WeatherProvider({ children }: Children) {
   const [weather, setWeather] = useState<WeatherTypes>({} as WeatherTypes);
+  const [loading, setLoading] = useState(true);
 
   const options = {
     enableHighAccuracy: false,
@@ -29,28 +33,19 @@ export function WeatherProvider({ children }: Children) {
   };
 
   async function getCurrentWeather() {
+    setLoading(true);
     Geolocation.getCurrentPosition(
       location => {
         api
-          .get(`/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}`, {
+          .get(`/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=${API_KEY}`, {
             params: {
-              appid: API_KEY,
               units: 'metric',
               lang: 'pt_br',
             },
           })
-          .then(res => {
-            //APAGAR
-            const array = {
-              ...res.data,
-              sunrise: new Date(res.data.sys.sunrise),
-              sunset: new Date(res.data.sys.sunset),
-            };
 
-            console.log(JSON.stringify(array, null, 2));
-            //APAGAR
-
-            setWeather({
+          .then(async res => {
+            const weatherData = {
               description: res.data.weather[0].description,
               temp: res.data.main.temp,
               feelsLike: res.data.main.feels_like,
@@ -64,10 +59,16 @@ export function WeatherProvider({ children }: Children) {
               sunrise: format(new Date(res.data.sys.sunrise), 'p'),
               sunset: format(new Date(res.data.sys.sunset), 'p'),
               icon: `https://openweathermap.org/img/wn/${res.data.weather[0].icon}@4x.png`,
-            });
+            };
+            setWeather(weatherData);
+
+            await AsyncStorage.setItem(weatherStorageKey, JSON.stringify(weatherData));
           })
           .catch(err => {
-            console.log(err);
+            console.log('error', err);
+          })
+          .finally(() => {
+            setLoading(false);
           });
       },
       () => console.log(`${Platform.OS} - geo_error`),
@@ -75,5 +76,5 @@ export function WeatherProvider({ children }: Children) {
     );
   }
 
-  return <WeatherContext.Provider value={{ getCurrentWeather, weather }}>{children}</WeatherContext.Provider>;
+  return <WeatherContext.Provider value={{ getCurrentWeather, weather, loading, setLoading }}>{children}</WeatherContext.Provider>;
 }
