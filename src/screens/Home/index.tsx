@@ -13,8 +13,6 @@ import {
   LoadingContainer,
   Loading,
   HeaderButton,
-  Title,
-  Bold,
   HeaderIcon,
   MainCard,
   District,
@@ -32,6 +30,7 @@ import { Card } from '../../components/Card';
 import { useWeather } from '../../hooks/useWeather';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../routes/types';
+import { CardDataTypes } from './types';
 
 export function Home() {
   const [refreshing, setRefreshing] = useState(false);
@@ -46,7 +45,7 @@ export function Home() {
     setLoading(false);
   }, [getCurrentWeather, setLoading]);
 
-  const { navigate } = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const today = format(new Date(), 'PPPP', {
     locale: ptBR,
@@ -56,7 +55,7 @@ export function Home() {
     getCurrentWeather();
   }, []);
 
-  const cardData = [
+  const cardData: CardDataTypes[] = [
     {
       id: String(Math.random()),
       title: 'Pressão',
@@ -109,7 +108,7 @@ export function Home() {
         }>
         <Content>
           <Header>
-            <HeaderButton onPress={() => navigate('Settings')}>
+            <HeaderButton onPress={() => navigation.navigate('Settings')}>
               <HeaderIcon name="settings-4-fill" color={'#fff'} />
             </HeaderButton>
           </Header>
@@ -121,7 +120,7 @@ export function Home() {
           ) : (
             <>
               <MainCard>
-                <District>{weather.district}</District>
+                <District testID="district">{weather.district}</District>
                 <CurrentWeather>{weather.temp}°</CurrentWeather>
                 <ImageWeather source={{ uri: weather.icon }} />
                 <WeatherDescription>{weather.description}</WeatherDescription>
@@ -135,7 +134,7 @@ export function Home() {
               <CurrentDate>{today}</CurrentDate>
 
               <CardGrid>
-                {cardData.map((item: any) => (
+                {cardData.map((item: CardDataTypes) => (
                   <Card key={item.id} title={item.title} icon={item.icon} value={item.value} />
                 ))}
               </CardGrid>
