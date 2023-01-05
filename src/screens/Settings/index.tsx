@@ -11,10 +11,10 @@ export function Settings() {
   const { navigate } = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
-    <Container>
+    <Container testID="container">
       <Content>
         <ItemButton onPress={() => navigate('About')}>
-          <ItemList>
+          <ItemList testID="screen-list">
             <ItemTitle>Sobre</ItemTitle>
             <ItemIcon name="arrow-right-s-line" color={theme.colors.text_light} size="28" />
           </ItemList>

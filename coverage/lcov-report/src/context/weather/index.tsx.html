@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">56.25% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/16</span>
+                <span class='fraction'>0/16</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/7</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">56.25% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/16</span>
+                <span class='fraction'>0/16</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -141,25 +141,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,15 +179,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -201,7 +201,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Geolocation from '@react-native-community/geolocation';
 import { format } from 'date-fns';
@@ -211,25 +211,25 @@ import { api } from '../../services/api';
 import { Children, WeatherContextType, WeatherTypes } from './types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 &nbsp;
-const { API_KEY } = process.env;
+const { API_KEY } = <span class="cstat-no" title="statement not covered" >process.env;</span>
 &nbsp;
-const weatherStorageKey = '@weatherBuilders:currentWeather';
+const weatherStorageKey = <span class="cstat-no" title="statement not covered" >'@weatherBuilders:currentWeather';</span>
 &nbsp;
-export const WeatherContext = createContext&lt;WeatherContextType&gt;({} as WeatherContextType);
+export const WeatherContext = <span class="cstat-no" title="statement not covered" >createContext&lt;WeatherContextType&gt;({} as WeatherContextType);</span>
 &nbsp;
-export function WeatherProvider({ children }: Children) {
-  const [weather, setWeather] = useState&lt;WeatherTypes&gt;({} as WeatherTypes);
-  const [loading, setLoading] = useState(true);
+export function <span class="fstat-no" title="function not covered" >WeatherProvider(</span>{ children }: Children) {
+  const [weather, setWeather] = <span class="cstat-no" title="statement not covered" >useState&lt;WeatherTypes&gt;({} as WeatherTypes);</span>
+  const [loading, setLoading] = <span class="cstat-no" title="statement not covered" >useState(true);</span>
 &nbsp;
-  const options = {
+  const options = <span class="cstat-no" title="statement not covered" >{</span>
     enableHighAccuracy: false,
     timeout: 2000,
     maximumAge: 3600000,
   };
 &nbsp;
-  async function getCurrentWeather() {
-    setLoading(true);
-    Geolocation.getCurrentPosition(
+  async function <span class="fstat-no" title="function not covered" >getCurrentWeather(</span>) {
+<span class="cstat-no" title="statement not covered" >    setLoading(true);</span>
+<span class="cstat-no" title="statement not covered" >    Geolocation.getCurrentPosition(</span>
 <span class="fstat-no" title="function not covered" >      lo</span>cation =&gt; {
 <span class="cstat-no" title="statement not covered" >        api</span>
           .get(`/data/2.5/weather?lat=${location.coords.latitude}&amp;lon=${location.coords.longitude}&amp;appid=${API_KEY}`, {
@@ -271,7 +271,7 @@ export function WeatherProvider({ children }: Children) {
     );
   }
 &nbsp;
-  return &lt;WeatherContext.Provider value={{ getCurrentWeather, weather, loading, setLoading }}&gt;{children}&lt;/WeatherContext.Provider&gt;;
+<span class="cstat-no" title="statement not covered" >  return &lt;WeatherContext.Provider value={{ getCurrentWeather, weather, loading, setLoading }}&gt;{children}&lt;/WeatherContext.Provider&gt;;</span>
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -280,7 +280,7 @@ export function WeatherProvider({ children }: Children) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-01-05T18:49:42.254Z
+                at 2023-01-05T19:09:44.885Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
