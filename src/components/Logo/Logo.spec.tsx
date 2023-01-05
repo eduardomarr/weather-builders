@@ -6,7 +6,7 @@ import { Logo } from '.';
 import { render } from '@testing-library/react-native';
 
 describe('Logo Component', () => {
-  it('should be render', () => {
+  it('should be render correctly', () => {
     const { getByText } = render(
       <Logo />,
       {wrapper}

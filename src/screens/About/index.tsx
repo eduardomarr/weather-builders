@@ -5,10 +5,10 @@ import { Container, Content, Version } from './styles';
 
 export function About() {
   return (
-    <Container>
+    <Container testID="container">
       <Content>
-        <Logo />
-        <Version>Versão: 1.0.0</Version>
+        <Logo testID="logo-component"/>
+        <Version testID="version-component">Versão: 1.0.0</Version>
       </Content>
     </Container>
   );

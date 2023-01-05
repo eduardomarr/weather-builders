@@ -6,7 +6,7 @@ import { Card } from '.';
 import { render } from '@testing-library/react-native';
 
 describe('Card Component', () => {
-  it('should be render', () => {
+  it('should be render correctly', () => {
     const { getByText } = render(
       <Card title="Pressão" icon="time-fill" value="10" />,
       {wrapper}
@@ -16,7 +16,7 @@ describe('Card Component', () => {
     expect(CardComponent.props.children).toEqual('Pressão');
   });
 
-  it('should style is correct', () => {
+  it('should be styled correctly', () => {
     const { getByText } = render(
       <Card title="Pressão" icon="time-fill" value="10" />,
       {wrapper}
