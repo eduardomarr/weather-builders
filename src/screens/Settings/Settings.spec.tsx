@@ -19,12 +19,10 @@ describe('Settings Screen', () => {
 
   it('should be render correctly', () => {
 
-    const { getByTestId, debug } = render(
+    const { getByTestId } = render(
       <Settings />,
       {wrapper: ThemeWrapper}
     );
-
-    debug();
 
     expect(getByTestId('container')).toBeOnTheScreen();
 

@@ -104,6 +104,7 @@ export function Home() {
   return (
     <Gradient colors={[theme.colors.background_700, theme.colors.blue_700]} start={{ x: 0.1, y: 0.9 }} end={{ x: 1.5, y: 1.8 }}>
       <Container
+        testID="container"
         refreshControl={
           <RefreshControl progressBackgroundColor={theme.colors.blue_700} tintColor={theme.colors.white} colors={[theme.colors.white]} refreshing={refreshing} onRefresh={onRefresh} />
         }>
@@ -122,19 +123,19 @@ export function Home() {
             <>
               <MainCard>
                 <District testID="district">{weather.district}</District>
-                <CurrentWeather>{weather.temp}°</CurrentWeather>
-                <ImageWeather source={{ uri: weather.icon }} />
-                <WeatherDescription>{weather.description}</WeatherDescription>
+                <CurrentWeather testID="current-temp">{weather.temp}°</CurrentWeather>
+                <ImageWeather testID="icon" source={{ uri: weather.icon }} />
+                <WeatherDescription testID="description">{weather.description}</WeatherDescription>
                 <MaxMinContainer>
-                  <MaxMinLabel>min: {weather.tempMin}</MaxMinLabel>
+                  <MaxMinLabel testID="min-temp">min: {weather.tempMin}</MaxMinLabel>
                   <Spacer />
-                  <MaxMinLabel>max: {weather.tempMax}</MaxMinLabel>
+                  <MaxMinLabel testID="max-temp">max: {weather.tempMax}</MaxMinLabel>
                 </MaxMinContainer>
               </MainCard>
 
-              <CurrentDate>{today}</CurrentDate>
+              <CurrentDate testID="today">{today}</CurrentDate>
 
-              <CardGrid>
+              <CardGrid testID="card-grid">
                 {cardData.map((item: CardDataTypes) => (
                   <Card key={item.id} title={item.title} icon={item.icon} value={item.value} />
                 ))}
