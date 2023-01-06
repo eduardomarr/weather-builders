@@ -20,7 +20,7 @@ export type Children = {
   children: ReactNode;
 };
 export interface WeatherContextType {
-  getCurrentWeather: () => Promise<void>;
+  getCurrentWeather: () => void;
   weather: WeatherTypes;
   loading: boolean;
   setLoading: (loading: boolean) => void;

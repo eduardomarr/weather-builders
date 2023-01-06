@@ -54,11 +54,7 @@ export function Home() {
 
   useEffect(() => {
     getCurrentWeather();
-  }, []);
-
-  useEffect(() => {
-    console.log(JSON.stringify(weather, null, 2));
-  }, [weather]);
+  }, [getCurrentWeather]);
 
   const cardData: CardDataTypes[] = [
     {
