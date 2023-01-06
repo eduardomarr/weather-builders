@@ -23,11 +23,11 @@ export function WeatherProvider({ children }: Children) {
   };
 
   async function getCurrentWeather() {
+
     setLoading(true);
     Geolocation.getCurrentPosition(
       location => {
-        api
-          .get(`/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=${API_KEY}`, {
+        api.get(`/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=${API_KEY}`, {
             params: {
               units: 'metric',
               lang: 'pt_br',

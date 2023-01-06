@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ThemeWrapper as wrapper} from '../../utils/ThemeWrapper';
+import { ThemeWrapper as wrapper} from '../../utils/ProviderWrappers';
 
 import { Card } from '.';
 import { render } from '@testing-library/react-native';

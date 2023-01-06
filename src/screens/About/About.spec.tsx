@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeWrapper } from '../../utils/ThemeWrapper';
+import { ThemeWrapper } from '../../utils/ProviderWrappers';
 
 import { About } from '.';
 

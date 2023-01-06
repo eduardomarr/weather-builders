@@ -31,6 +31,7 @@ import { useWeather } from '../../hooks/useWeather';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../routes/types';
 import { CardDataTypes } from './types';
+import theme from '../../styles/theme';
 
 export function Home() {
   const [refreshing, setRefreshing] = useState(false);
@@ -101,21 +102,21 @@ export function Home() {
   ];
 
   return (
-    <Gradient colors={['#090932', '#1B86E6']} start={{ x: 0.1, y: 0.9 }} end={{ x: 1.5, y: 1.8 }}>
+    <Gradient colors={[theme.colors.background_700, theme.colors.blue_700]} start={{ x: 0.1, y: 0.9 }} end={{ x: 1.5, y: 1.8 }}>
       <Container
         refreshControl={
-          <RefreshControl progressBackgroundColor={'#1B86E6'} tintColor={'#fff'} colors={['#fff']} refreshing={refreshing} onRefresh={onRefresh} />
+          <RefreshControl progressBackgroundColor={theme.colors.blue_700} tintColor={theme.colors.white} colors={[theme.colors.white]} refreshing={refreshing} onRefresh={onRefresh} />
         }>
         <Content>
           <Header>
             <HeaderButton onPress={() => navigation.navigate('Settings')}>
-              <HeaderIcon name="settings-4-fill" color={'#fff'} />
+              <HeaderIcon name="settings-4-fill" color={theme.colors.white} />
             </HeaderButton>
           </Header>
 
           {loading ? (
             <LoadingContainer>
-              <Loading color={'#fff'} size="large" />
+              <Loading color={theme.colors.white} size="large" />
             </LoadingContainer>
           ) : (
             <>
