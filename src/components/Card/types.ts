@@ -4,4 +4,5 @@ export interface CardProps extends ViewProps{
   title: string;
   icon: string;
   value: number | string;
+  unit?: string;
 }

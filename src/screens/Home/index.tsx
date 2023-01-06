@@ -56,24 +56,31 @@ export function Home() {
     getCurrentWeather();
   }, []);
 
+  useEffect(() => {
+    console.log(JSON.stringify(weather, null, 2));
+  }, [weather]);
+
   const cardData: CardDataTypes[] = [
     {
       id: String(Math.random()),
       title: 'Pressão',
       icon: 'time-fill',
       value: weather.pressure,
+      unit: 'hPa',
     },
     {
       id: String(Math.random()),
       title: 'Vento',
       icon: 'windy-fill',
       value: weather.windSpeed,
+      unit: 'km/h',
     },
     {
       id: String(Math.random()),
       title: 'Umidade',
       icon: 'contrast-drop-2-fill',
       value: weather.humidity,
+      unit: '%',
     },
     {
       id: String(Math.random()),
@@ -98,6 +105,7 @@ export function Home() {
       title: 'Sensação térmica',
       icon: 'temp-cold-fill',
       value: weather.feelsLike,
+      unit: '°',
     },
   ];
 
@@ -127,9 +135,9 @@ export function Home() {
                 <ImageWeather testID="icon" source={{ uri: weather.icon }} />
                 <WeatherDescription testID="description">{weather.description}</WeatherDescription>
                 <MaxMinContainer>
-                  <MaxMinLabel testID="min-temp">min: {weather.tempMin}</MaxMinLabel>
+                  <MaxMinLabel testID="min-temp">min: {weather.tempMin}°</MaxMinLabel>
                   <Spacer />
-                  <MaxMinLabel testID="max-temp">max: {weather.tempMax}</MaxMinLabel>
+                  <MaxMinLabel testID="max-temp">max: {weather.tempMax}°</MaxMinLabel>
                 </MaxMinContainer>
               </MainCard>
 
@@ -137,7 +145,7 @@ export function Home() {
 
               <CardGrid testID="card-grid">
                 {cardData.map((item: CardDataTypes) => (
-                  <Card key={item.id} title={item.title} icon={item.icon} value={item.value} />
+                  <Card key={item.id} title={item.title} icon={item.icon} value={item.value} unit={item.unit}/>
                 ))}
               </CardGrid>
             </>

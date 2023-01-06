@@ -3,4 +3,5 @@ export interface CardDataTypes {
   title: string;
   icon: string;
   value: number | string;
+  unit?: string
 }
