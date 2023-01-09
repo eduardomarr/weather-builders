@@ -26,6 +26,7 @@ describe('About Screen', () => {
     </ThemeWrapper>
     ).toJSON() as ReactTestRendererJSON;
 
+      expect(tree).toMatchSnapshot();
       expect(tree).toHaveStyle({
         backgroundColor: '#090932',
     });

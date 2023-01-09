@@ -4,6 +4,8 @@ import { ThemeWrapper } from '../../utils/ProviderWrappers';
 import { Settings } from '.';
 
 import { render } from '@testing-library/react-native';
+import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
+
 
 jest.mock('@react-navigation/native', () => {
   return {
@@ -36,6 +38,17 @@ describe('Settings Screen', () => {
     );
 
     expect(getByTestId('screen-list')).toBeOnTheScreen();
+
+  });
+
+  it('should be styled correctly', () => {
+    const tree = renderer.create(
+    <ThemeWrapper>
+      <Settings />
+    </ThemeWrapper>
+    ).toJSON() as ReactTestRendererJSON;
+
+      expect(tree).toMatchSnapshot();
 
   });
 

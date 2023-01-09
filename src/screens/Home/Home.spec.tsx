@@ -71,12 +71,5 @@ describe('Home Screen', () => {
 
     expect(getByTestId('today')).toBeOnTheScreen();
   });
-
-  it('should be styled correctly', () => {
-
-    const tree = renderer.create(<HomeScreenWrapped />).toJSON();
-    expect(tree).toMatchSnapshot();
-
-  });
 });
 

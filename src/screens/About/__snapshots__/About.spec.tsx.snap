@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About Screen should be styled correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#090932",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "space-between",
+        "paddingBottom": 80,
+        "paddingLeft": 32,
+        "paddingRight": 32,
+        "paddingTop": 80,
+      },
+    ]
+  }
+  testID="container"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "height": "100%",
+          "justifyContent": "space-between",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "paddingBottom": 24,
+            "paddingLeft": 24,
+            "paddingRight": 24,
+            "paddingTop": 24,
+          },
+        ]
+      }
+      testID="logo-component"
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/assets/logo.png",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "height": 294,
+              "marginBottom": 16,
+              "width": 294,
+            },
+          ]
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#FFFFFF",
+              "fontFamily": "Manrope-Bold",
+              "fontSize": 47,
+            },
+          ]
+        }
+      >
+        Weather Builders
+      </Text>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Manrope-Medium",
+            "fontSize": 35,
+            "marginBottom": 32,
+          },
+        ]
+      }
+      testID="version-component"
+    >
+      Versão: 1.0.0
+    </Text>
+  </View>
+</View>
+`;
