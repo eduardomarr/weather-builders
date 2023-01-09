@@ -63,3 +63,17 @@ Para executar os testes automatizados, abra o terminal e execute:
 ```bash
 yarn test
 ```
+
+## 📱 UI Prints
+
+<p align="center">
+  <img  src="https://user-images.githubusercontent.com/24718475/211412757-3cd4efb8-1b83-46a8-9282-73ed961cb381.png">
+</p>
+
+<p align="center">
+  <img  src="https://user-images.githubusercontent.com/24718475/211412858-e7426600-8b0d-4782-9f5d-91e5f943a88a.png">
+</p>
+
+<p align="center">
+  <img  src="https://user-images.githubusercontent.com/24718475/211412901-93daee1b-6e0f-4f41-8f25-1bb2477f93e1.png">
+</p>
